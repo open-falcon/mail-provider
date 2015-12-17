@@ -1,0 +1,13 @@
+{
+    "debug": true,
+    "http": {
+        "listen": "0.0.0.0:4000",
+        "token": "",
+    },
+    "smtp": {
+        "addr": "mail.example.com:25",
+        "username": "falcon@example.com",
+        "password": "123456",
+        "from": "falcon@example.com"
+    }
+}
