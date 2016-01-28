@@ -2,7 +2,7 @@
     "debug": true,
     "http": {
         "listen": "0.0.0.0:4000",
-        "token": "",
+        "token": ""
     },
     "smtp": {
         "addr": "mail.example.com:25",
