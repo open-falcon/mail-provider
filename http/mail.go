@@ -1,6 +1,7 @@
 package http
 
 import (
+	"log"
 	"net/http"
 	"strings"
 
@@ -23,6 +24,7 @@ func configProcRoutes() {
 		subject := param.MustString(r, "subject")
 		content := param.MustString(r, "content")
 		tos = strings.Replace(tos, ",", ";", -1)
+		log.Println("prepare to send to: ", tos)
 
 		s := smtp.New(cfg.Smtp.Addr, cfg.Smtp.Username, cfg.Smtp.Password)
 		err := s.SendMail(cfg.Smtp.From, tos, subject, content)

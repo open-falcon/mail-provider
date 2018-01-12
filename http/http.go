@@ -16,7 +16,7 @@ func init() {
 func Start() {
 	addr := config.Config().Http.Listen
 	if addr == "" {
-		return
+		log.Println("addr is required")
 	}
 	s := &http.Server{
 		Addr:           addr,
