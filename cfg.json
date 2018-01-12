@@ -5,7 +5,8 @@
         "token": ""
     },
     "smtp": {
-        "addr": "mail.example.com:25",
+        "ssl":true,
+        "addr": "mail.example.com:465",
         "username": "falcon@example.com",
         "password": "123456",
         "from": "falcon@example.com"
