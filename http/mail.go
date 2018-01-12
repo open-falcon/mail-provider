@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/open-falcon/mail-provider/config"
-	"github.com/toolkits/smtp"
 	"github.com/toolkits/web/param"
+	"github.com/open-falcon/mail-provider/mail"
 )
 
 func configProcRoutes() {
@@ -23,11 +23,11 @@ func configProcRoutes() {
 		tos := param.MustString(r, "tos")
 		subject := param.MustString(r, "subject")
 		content := param.MustString(r, "content")
-		tos = strings.Replace(tos, ",", ";", -1)
+		tosSlice := strings.Split(tos, ",")
 		log.Println("prepare to send to: ", tos)
+		log.Println(cfg.Smtp)
 
-		s := smtp.New(cfg.Smtp.Addr, cfg.Smtp.Username, cfg.Smtp.Password)
-		err := s.SendMail(cfg.Smtp.From, tos, subject, content)
+		err := mail.Send(cfg.Smtp.From, cfg.Smtp.Password, subject, content, cfg.Smtp.Addr, tosSlice...)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		} else {
