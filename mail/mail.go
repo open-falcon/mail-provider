@@ -38,7 +38,7 @@ func Send(username, password, from, subject, body, addr string, tos ...string) e
 
 	auth := smtp.PlainAuth(
 		"",
-		from,
+		username,
 		password,
 		host,
 	)
