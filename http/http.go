@@ -17,7 +17,9 @@ func Start() {
 	addr := config.Config().Http.Listen
 	if addr == "" {
 		log.Println("addr is required")
+		return
 	}
+
 	s := &http.Server{
 		Addr:           addr,
 		MaxHeaderBytes: 1 << 30,
