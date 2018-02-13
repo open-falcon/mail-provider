@@ -7,6 +7,8 @@ import (
 	"sync"
 
 	"github.com/toolkits/file"
+	"strings"
+	"errors"
 )
 
 type HttpConfig struct {
@@ -60,6 +62,11 @@ func Parse(cfg string) error {
 	err = json.Unmarshal([]byte(configContent), &c)
 	if err != nil {
 		return fmt.Errorf("parse configuration file %s fail %s", cfg, err.Error())
+	}
+
+	hostArgs := strings.Split(c.Smtp.Addr, ":")
+	if len(hostArgs) < 2 {
+		return errors.New("mail port required")
 	}
 
 	configLock.Lock()
