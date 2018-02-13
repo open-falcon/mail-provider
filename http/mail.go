@@ -29,7 +29,7 @@ func configProcRoutes() {
 		var err error
 		if cfg.Smtp.SSL {
 			tosSlice := strings.Split(tos, ",")
-			err = mail.Send(cfg.Smtp.From, cfg.Smtp.Password, subject, content, cfg.Smtp.Addr, tosSlice...)
+			err = mail.Send(cfg.Smtp.Username, cfg.Smtp.Password, cfg.Smtp.From, subject, content, cfg.Smtp.Addr, tosSlice...)
 		} else {
 			tos = strings.Replace(tos, ",", ";", -1)
 			s := smtp.New(cfg.Smtp.Addr, cfg.Smtp.Username, cfg.Smtp.Password)
@@ -39,10 +39,11 @@ func configProcRoutes() {
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		} else {
+			log.Println("send success")
 			http.Error(w, "success", http.StatusOK)
 		}
 
-		log.Println("send success")
+
 	})
 
 }

@@ -11,13 +11,12 @@ import (
 	"strings"
 )
 
-func Send(from, password, subject, body, addr string, tos ...string) error {
-
+func Send(username, password, from, subject, body, addr string, tos ...string) error {
 	hostArgs := strings.Split(addr, ":")
 	if len(hostArgs) < 2 {
 		return errors.New("mail port required")
 	}
-	
+
 	host := hostArgs[0]
 
 	port, err := strconv.Atoi(hostArgs[1])
