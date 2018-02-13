@@ -33,4 +33,4 @@ _testmain.go
 /mail-provider*
 /cfg.local.json
 /gitversion
-cfg.example.json
+cfg.json

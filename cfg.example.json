@@ -1,0 +1,14 @@
+{
+    "debug": true,
+    "http": {
+        "listen": "0.0.0.0:4000",
+        "token": ""
+    },
+    "smtp": {
+        "ssl": true,
+        "addr": "smtp.exmail.qq.com:465",
+        "username": "monitor@xx.com",
+        "password": "xx",
+        "from": "monitor@xx.com"
+    }
+}
