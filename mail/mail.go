@@ -21,7 +21,7 @@ func Send(from, password, subject, body, addr string, tos ...string) error {
 	}
 
 	header := make(map[string]string)
-	header["From"] = "test" + "<" + from + ">"
+	header["From"] = from
 	header["To"] = strings.Join(tos, ";")
 	header["Subject"] = subject
 	header["Content-Type"] = "text/html; charset=UTF-8"

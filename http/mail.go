@@ -41,6 +41,8 @@ func configProcRoutes() {
 		} else {
 			http.Error(w, "success", http.StatusOK)
 		}
+
+		log.Println("send success")
 	})
 
 }
