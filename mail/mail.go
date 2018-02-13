@@ -2,13 +2,13 @@ package mail
 
 import (
 	"crypto/tls"
+	"errors"
 	"fmt"
 	"log"
 	"net"
 	"net/smtp"
-	"strings"
 	"strconv"
-	"errors"
+	"strings"
 )
 
 func Send(from, password, subject, body, addr string, tos ...string) error {
