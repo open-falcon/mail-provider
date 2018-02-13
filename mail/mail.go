@@ -14,7 +14,12 @@ import (
 func Send(from, password, subject, body, addr string, tos ...string) error {
 
 	hostArgs := strings.Split(addr, ":")
+	if len(hostArgs) < 2 {
+		return errors.New("mail port required")
+	}
+	
 	host := hostArgs[0]
+
 	port, err := strconv.Atoi(hostArgs[1])
 	if err != nil {
 		return errors.New("mail port required int type" + err.Error())
