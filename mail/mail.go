@@ -25,7 +25,13 @@ func Send(username, password, from, subject, body, addr string, tos ...string) e
 	}
 
 	header := make(map[string]string)
-	header["From"] = from
+	var headerFrom string
+	if !strings.Contains(from, username) {
+		headerFrom = from + "<" + username + ">"
+	} else {
+		headerFrom = from
+	}
+	header["From"] = headerFrom
 	header["To"] = strings.Join(tos, ";")
 	header["Subject"] = subject
 	header["Content-Type"] = "text/html; charset=UTF-8"
@@ -46,7 +52,7 @@ func Send(username, password, from, subject, body, addr string, tos ...string) e
 	err = SendMailUsingTLS(
 		fmt.Sprintf("%s:%d", host, port),
 		auth,
-		from,
+		username,
 		tos,
 		[]byte(message),
 	)

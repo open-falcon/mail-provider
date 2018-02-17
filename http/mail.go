@@ -6,9 +6,9 @@ import (
 	"strings"
 
 	"github.com/open-falcon/mail-provider/config"
-	"github.com/toolkits/web/param"
 	"github.com/open-falcon/mail-provider/mail"
 	"github.com/toolkits/smtp"
+	"github.com/toolkits/web/param"
 )
 
 func configProcRoutes() {
@@ -37,12 +37,12 @@ func configProcRoutes() {
 		}
 
 		if err != nil {
+			log.Println(err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		} else {
 			log.Println("send success")
 			http.Error(w, "success", http.StatusOK)
 		}
-
 
 	})
 

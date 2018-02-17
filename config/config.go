@@ -6,9 +6,9 @@ import (
 	"log"
 	"sync"
 
+	"errors"
 	"github.com/toolkits/file"
 	"strings"
-	"errors"
 )
 
 type HttpConfig struct {
