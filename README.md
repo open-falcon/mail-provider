@@ -26,7 +26,7 @@ cd mail-provider
 cd $GOPATH/src
 mkdir github.com/open-falcon/ -p
 cd github.com/open-falcon/
-git clone https://github.com/open-falcon/mail-provider.git
+git clone https://github.com/GitHamburg/mail-provider.git
 cd mail-provider
 go get ./...
 ./control build
@@ -47,6 +47,9 @@ curl http://$ip:4000/sender/mail -d "tos=a@a.com,b@b.com&subject=xx&content=yy"
 
 ## FAQ
 
-1.此插件目前不支持smtp SSL协议
+1.此插件目前支持smtp SSL协议
+```
+"type": "smtp_ssl"
+```
 
 2.对于126.163等邮箱请控制发信频率以免被封
