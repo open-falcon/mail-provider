@@ -27,6 +27,9 @@ func configProcRoutes() {
 		content := param.MustString(r, "content")
 		tos = strings.Replace(tos, ",", ";", -1)
 
+		//替换content中的 \r\n 为 <br/>
+		content = strings.Replace(content, "\r\n", "<br/>", -1)
+
 		if cfg.Smtp.Type == "smtp_ssl" {
 			m := gomail.NewMessage()
 			m.SetHeader("From", cfg.Smtp.From)
