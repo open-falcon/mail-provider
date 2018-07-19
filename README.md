@@ -8,7 +8,7 @@ mail-provider
 1.二进制安装(推荐)
 下载编译好的二进制
 ```bash
-wget http://cactifans.hi-www.com/open-falcon/mail-provider.tar.gz
+wget https://dl.cactifans.com/open-falcon/mail-provider.tar.gz
 mkdir -p mail-provider
 tar zxvf mail-provider.tar.gz  -C mail-provider
 cd mail-provider
@@ -39,12 +39,15 @@ go get ./...
 
 
 ## 使用方法
-下载之后为源码，需要编译
 
+测试发送
 ```
 curl http://$ip:4000/sender/mail -d "tos=a@a.com,b@b.com&subject=xx&content=yy"
 ```
-
+在Alarm组件里修改配置mail地址为
+```
+ "mail": "http://127.0.0.1:4000/sender/mail",
+```
 ## FAQ
 
 1.此插件目前不支持smtp SSL协议
