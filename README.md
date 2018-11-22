@@ -47,6 +47,6 @@ curl http://$ip:4000/sender/mail -d "tos=a@a.com,b@b.com&subject=xx&content=yy"
 
 ## FAQ
 
-1.此插件目前不支持smtp SSL协议
+1.此插件目前不支持smtp SSL协议（不支持456等安全端口）
 
 2.对于126.163等邮箱请控制发信频率以免被封
