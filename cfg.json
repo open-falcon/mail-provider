@@ -8,6 +8,9 @@
         "addr": "mail.example.com:25",
         "username": "falcon@example.com",
         "password": "123456",
-        "from": "falcon@example.com"
+        "from": "falcon@example.com",
+        "tls":false,
+        "anonymous":false,
+        "skipVerify":true
     }
 }

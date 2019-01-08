@@ -47,6 +47,6 @@ curl http://$ip:4000/sender/mail -d "tos=a@a.com,b@b.com&subject=xx&content=yy"
 
 ## FAQ
 
-1.此插件目前不支持smtp SSL协议（不支持456等安全端口）
+1.如使用自建邮件系统请设置 skipVerify 为 true 以避免证书校验错误，即使未开启TLS。（因为默认会尝试StartTLS）
 
 2.对于126.163等邮箱请控制发信频率以免被封
