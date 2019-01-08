@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/open-falcon/mail-provider/config"
-	"github.com/open-falcon/smtp"
+	"github.com/toolkits/smtp"
 	"github.com/toolkits/web/param"
 )
 
